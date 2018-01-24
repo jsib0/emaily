@@ -9,8 +9,8 @@ class Header extends Component {
 			<div>
 			  <nav>
 			    <div className="nav-wrapper">
-			      <a href="#" className="left brand-logo">&nbsp; Emaily</a>
-			      <ul id="nav-mobile" class="right ">
+			      <a  className="left brand-logo">&nbsp; Emaily</a>
+			      <ul id="nav-mobile" className="right ">
 			        <li><a href="sass.html">Login With Google</a></li>
 			    
 			      </ul>
