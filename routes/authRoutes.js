@@ -25,9 +25,5 @@ module.exports = (app) => {
 		res.send(req.user)
 	});
 
-	app.post('/api/stripe', (req, res) => {
-		console.log("req:", req)
-		console.log("res:", res)
-
-	});
+	
 }
