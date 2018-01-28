@@ -38,15 +38,3 @@ passport.use(
 
 
 
-// refactored above to reflect es2017. previous code below
-
-// /// User.findOne({ googleId: profile.id})
-// 		 .then((existingUser) => {
-// 		 	if(existingUser) {
-// 		 	   done(null, existingUser);
-// 		 	} else {
-// 		 	   new User({ googleId: profile.id }).save()
-// 		 	   .then(user => done(null, user));
-// 		 	}
-// 		 })
-// 	 }
