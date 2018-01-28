@@ -7,7 +7,7 @@ const userSchema = new Schema({
 	credits: { type: Number, default: 0}
 });
 
-//model class * a new collection called users
+
 mongoose.model('users', userSchema)
 
 
