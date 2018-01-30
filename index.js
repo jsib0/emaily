@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 require('./models/User'); //error if this does not come before passport
 require('./services/passport');
 require('./models/Survey');
-require('./models/Recipient')
+require('./models/Recipient');
 
 
 
@@ -31,6 +31,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
