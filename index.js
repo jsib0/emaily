@@ -6,6 +6,7 @@ const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 require('./models/User'); //error if this does not come before passport
 require('./services/passport');
+require('./models/Survey');
 
 
 
