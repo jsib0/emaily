@@ -1,4 +1,4 @@
-const mongoose = require('mogoose');
+const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 
@@ -13,7 +13,11 @@ module.exports = app => {
 			title,
 			subject,
 			body,
-			recipients: recipients.split(',').map( email =>  ({ email }))
+			recipients: recipients.split(',').map( email =>  ({ email:email.trim() })),
+			_user: req.user.id,
+			dateSent: Date.now()
 		})
+
+
 	});
 }
