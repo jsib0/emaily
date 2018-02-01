@@ -5,6 +5,7 @@ import { reduxForm, Field } from 'redux-form';
 import SurveyField from './SurveyField';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
 	{label: 'Survey Title', name: 'title', novalueError: "Title must not be empty"},
@@ -42,12 +43,17 @@ class SurveyForm extends Component {
 
 function validate(values) {
 	const errors = {};
+	
+	errors.emails = validateEmails(values.emails || '');
 
 	_.each(FIELDS, ({name, novalueError}) => {
 		if(!values[name]){
 			errors[name] = novalueError;
 		}
 	})
+
+	
+
 
 	return errors
 }
