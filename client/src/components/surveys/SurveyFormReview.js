@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
 const SurveyFormReview = ({ onCancel }) => {
@@ -10,8 +11,13 @@ const SurveyFormReview = ({ onCancel }) => {
 			</h5>
 			<button className="yellow darken-3 btn-flat" onClick={onCancel }> Back </button>
 		</div>
+
  	)
 }
 
 
-export default SurveyFormReview;
+function mapStateToProps(state) {
+	return { forValues: state.form.surveyForm.values }
+}
+
+export default connect(mapStateToProps)(SurveyFormReview);
