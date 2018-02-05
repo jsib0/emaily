@@ -6,18 +6,12 @@ import SurveyField from './SurveyField';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import validateEmails from '../../utils/validateEmails';
-
-const FIELDS = [
-	{label: 'Survey Title', name: 'title', novalueError: "Title must not be empty"},
-	{label: 'Subject Line', name: 'subject', novalueError: "Subject must not be empty" },
-	{label: 'Email Body', name: 'body', novalueError: "Body must not be empty" },
-	{label: 'Recipient List', name: 'emails', novalueError: "Email list must not be empty"}
-]
+import formFields from './formFields';
 
 
 class SurveyForm extends Component {
 	renderFields() {
-		return _.map(FIELDS, ({label, name}) => {
+		return _.map(formFields, ({label, name}) => {
 			return (<Field key={name} component={SurveyField} type="text" label={label} name={name}/>)
 		})
 	}
@@ -27,7 +21,7 @@ class SurveyForm extends Component {
 			<div>
 				<form onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit() )}>
 					{this.renderFields()}
-					<Link to="/surveys" className="red btn-flat">
+					<Link to="/surveys" className="red white-text btn-flat">
 						Cancel
 					</Link>
 					<button type="submit" className="teal btn-flat right white-text">
@@ -46,7 +40,7 @@ function validate(values) {
 	
 	errors.emails = validateEmails(values.emails || '');
 
-	_.each(FIELDS, ({name, novalueError}) => {
+	_.each(formFields, ({name, novalueError}) => {
 		if(!values[name]){
 			errors[name] = novalueError;
 		}
